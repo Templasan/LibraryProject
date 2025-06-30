@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Livros - Sistema de Biblioteca</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gerenciamento de Biblioteca</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="livros.html" class="active">Livros</a></li>
+                <li><a href="revistas.html">Revistas</a></li>
+                <li><a href="emprestimos.html">Empréstimos</a></li>
+                <li><a href="categorias.html">Categorias</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Gerenciamento de Livros</h2>
+
+        <section>
+            <h3>Cadastrar Novo Livro</h3>
+            <div class="form-container">
+                <form id="formLivro">
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" name="titulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="autor">Autor:</label>
+                        <input type="text" id="autor" name="autor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="anoPublicacao">Ano de Publicação:</label>
+                        <input type="number" id="anoPublicacao" name="anoPublicacao" min="1800" max="2100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editora">Editora:</label>
+                        <input type="text" id="editora" name="editora" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">ISBN:</label>
+                        <input type="text" id="isbn" name="isbn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroPaginas">Número de Páginas:</label>
+                        <input type="number" id="numeroPaginas" name="numeroPaginas" min="1" required>
+                    </div>
+                    <!-- CAMPO PARA URL DA CAPA -->
+                    <div class="form-group">
+                        <label for="capaUrl">URL da Capa:</label>
+                        <input type="url" id="capaUrl" name="capaUrl" placeholder="https://exemplo.com/imagem.jpg">
+                    </div>
+                    <button type="submit">Cadastrar Livro</button>
+                </form>
+            </div>
+        </section>
+
+        <section>
+            <h3>Livros Cadastrados</h3>
+            <div id="listaLivros" class="item-list">
+                <!-- Os livros serão carregados dinamicamente aqui -->
+                <p>Carregando livros...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Sistema de Biblioteca - Masterclass C# Prático</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/livros.js"></script>
+</body>
+</html>

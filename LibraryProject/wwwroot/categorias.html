@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gerenciamento de Categorias - Sistema de Biblioteca</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gerenciamento de Biblioteca</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="livros.html">Livros</a></li>
+                <li><a href="revistas.html">Revistas</a></li>
+                <li><a href="emprestimos.html">Empréstimos</a></li>
+                <li><a href="categorias.html" class="active">Categorias</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Gerenciamento de Categorias</h2>
+
+        <section>
+            <h3>Nova Categoria</h3>
+            <form id="formCategoria">
+                <!-- Campo oculto para armazenar o id da categoria (0 para nova) -->
+                <input type="hidden" id="categoriaId" value="0" />
+
+                <div class="form-group">
+                    <label for="categoriaNome">Nome da Categoria:</label>
+                    <input type="text" id="categoriaNome" name="Nome" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="categoriaDescricao">Descrição:</label>
+                    <textarea id="categoriaDescricao" name="Descricao" rows="3" placeholder="Descrição opcional..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="livrosSelecionados">Selecione os Livros:</label>
+                    <select id="livrosSelecionados" name="Livros" multiple>
+                        <!-- Os livros serão carregados aqui via JS -->
+                    </select>
+                </div>
+
+                <button type="submit">Salvar Categoria</button>
+            </form>
+        </section>
+
+        <section>
+            <h3>Lista de Categorias</h3>
+            <div id="listaCategorias">
+                <p>Carregando categorias...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Sistema de Biblioteca - Masterclass C# Prático</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/categorias.js"></script>
+</body>
+</html>

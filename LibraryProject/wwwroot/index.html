@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Biblioteca</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gerenciamento de Biblioteca</h1>
+        <nav class="navbar-com-login">
+            <ul>
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="livros.html">Livros</a></li>
+                <li><a href="revistas.html">Revistas</a></li>
+                <li><a href="emprestimos.html">Empréstimos</a></li>
+                <li><a href="categorias.html">Categorias</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <div class="login-area" id="loginArea">
+                <!-- Conteúdo do login/logout será inserido por JS -->
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Busca avançada -->
+        <section class="busca-avancada">
+            <h2>Busca Avançada</h2>
+            <form id="formBusca" autocomplete="off">
+                <input type="text"
+                       id="termoBusca"
+                       name="termoBusca"
+                       placeholder="Título ou Autor"
+                       autocomplete="off" />
+
+                <input type="number"
+                       id="anoBusca"
+                       name="anoBusca"
+                       placeholder="Ano de Publicação"
+                       min="0" />
+
+                <label for="disponivelBusca" style="display:inline;">
+                    <input type="checkbox"
+                           id="disponivelBusca"
+                           name="disponivelBusca" />
+                    Somente disponíveis
+                </label>
+
+                <select id="categoriaBusca" name="categoriaBusca">
+                    <option value="">-- Categoria --</option>
+                    <option value="1">Ficção</option>
+                    <option value="2">Educação</option>
+                    <option value="3">Ciência</option>
+                </select>
+
+                <select id="ordenarPor" name="ordenarPor">
+                    <option value="titulo">Ordenar por Título</option>
+                    <option value="ano">Ordenar por Ano</option>
+                    <option value="editora">Ordenar por Editora</option>
+                </select>
+
+                <label for="ordemCrescente" style="display:inline;">
+                    <input type="checkbox"
+                           id="ordemCrescente"
+                           name="ordemCrescente"
+                           checked />
+                    Ordem Crescente
+                </label>
+
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
+
+        <!-- Resultados da busca -->
+        <section>
+            <div id="listaResultados" class="resultados-busca">
+                <!-- Resultados serão inseridos aqui -->
+            </div>
+        </section>
+
+        <!-- Paginação -->
+        <section>
+            <div id="paginacao" class="paginacao">
+                <!-- Paginação aparecerá aqui -->
+            </div>
+        </section>
+
+        <!-- Boas-vindas -->
+        <section class="welcome">
+            <h2>Bem-vindo ao Sistema de Biblioteca</h2>
+            <p>Este é um exemplo prático de uma aplicação C# com front-end, back-end, SQL Server e API REST.</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>Livros</h3>
+                    <p>Gerencie o catálogo de livros da biblioteca.</p>
+                    <a href="livros.html" class="btn">Acessar</a>
+                </div>
+                <div class="card">
+                    <h3>Revistas</h3>
+                    <p>Gerencie o catálogo de revistas da biblioteca.</p>
+                    <a href="revistas.html" class="btn">Acessar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Sistema de Biblioteca - Masterclass C# Prático</p>
+    </footer>
+
+    <script src="js/busca.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Exibe login/logout na nav, à direita
+        function renderLoginArea() {
+            const loginArea = document.getElementById('loginArea');
+            const token = localStorage.getItem('token');
+            const email = localStorage.getItem('userEmail'); // Salve o email do usuário ao logar!
+
+            if (token && email) {
+                loginArea.innerHTML = `
+                        <span class="user-email">${email}</span>
+                        <button id="logoutBtn" class="btn-logout">Sair</button>
+                    `;
+                document.getElementById('logoutBtn').onclick = function () {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('userEmail');
+                    window.location.reload();
+                };
+            } else {
+                loginArea.innerHTML = `
+                        <a href="login.html" class="btn-login">Entrar</a>
+                    `;
+            }
+        }
+        renderLoginArea();
+    </script>
+</body>
+</html>

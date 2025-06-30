@@ -1,0 +1,20 @@
+# Arquivos de compilação
+bin/
+obj/
+
+# Arquivos do Visual Studio
+.vs/
+*.user
+*.suo
+
+# Pacotes NuGet
+packages/
+
+# Banco de dados local
+*.mdf
+*.ldf
+*.ndf
+
+# Outros arquivos do sistema
+.DS_Store
+Thumbs.db

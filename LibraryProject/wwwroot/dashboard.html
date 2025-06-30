@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Biblioteca</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Chart.js CDN para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Axios CDN para consumo de API -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!--
+      Se você já define API_URL em outro arquivo JS,
+      garanta que ele está incluído ANTES do dashboard.js!
+      Exemplo:
+      <script src="js/api_url.js"></script>
+    -->
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gerenciamento de Biblioteca</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="livros.html">Livros</a></li>
+                <li><a href="revistas.html">Revistas</a></li>
+                <li><a href="emprestimos.html">Empréstimos</a></li>
+                <li><a href="categorias.html">Categorias</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Dashboard Administrativo</h2>
+        <section class="dashboard-cards">
+            <div class="dashboard-card">
+                <h3>Total de Livros</h3>
+                <span id="totalLivros">-</span>
+            </div>
+            <div class="dashboard-card">
+                <h3>Total de Revistas</h3>
+                <span id="totalRevistas">-</span>
+            </div>
+            <div class="dashboard-card">
+                <h3>Total de Itens</h3>
+                <span id="totalItens">-</span>
+            </div>
+            <div class="dashboard-card">
+                <h3>Empréstimos Ativos</h3>
+                <span id="emprestimosAtivos">-</span>
+            </div>
+            <div class="dashboard-card">
+                <h3>Empréstimos Atrasados</h3>
+                <span id="emprestimosAtrasados">-</span>
+            </div>
+        </section>
+        <section>
+            <h3>Itens por Categoria</h3>
+            <canvas id="graficoCategorias" height="100"></canvas>
+        </section>
+        <section>
+            <h3>Empréstimos por Período</h3>
+            <form id="formPeriodo">
+                <label for="inicioPeriodo">Início:</label>
+                <input type="date" id="inicioPeriodo" name="inicioPeriodo">
+                <label for="fimPeriodo">Fim:</label>
+                <input type="date" id="fimPeriodo" name="fimPeriodo">
+                <button type="submit">Filtrar</button>
+            </form>
+            <canvas id="graficoEmprestimosPeriodo" height="100"></canvas>
+        </section>
+        <section>
+            <h3>Itens Mais Emprestados</h3>
+            <table id="tabelaMaisEmprestados">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Título</th>
+                        <th>Total de Empréstimos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dados dinâmicos -->
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h3>Relatório de Empréstimos Atrasados</h3>
+            <table id="tabelaAtrasados">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Título</th>
+                        <th>Usuário</th>
+                        <th>Data Empréstimo</th>
+                        <th>Previsto Devolução</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dados dinâmicos -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>
+            &copy; 2025 - Sistema de Biblioteca - Masterclass C# Prático
+        </p>
+    </footer>
+    <!-- Seu script principal do dashboard -->
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
