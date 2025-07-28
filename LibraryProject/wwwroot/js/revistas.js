@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Função utilitária para requisições autenticadas exceto GET
 async function revistaRequestComToken(url, method = 'GET', body = null) {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const headers = { 'Content-Type': 'application/json' };
     if (method !== 'GET' && token) {
         headers['Authorization'] = 'Bearer ' + token;
