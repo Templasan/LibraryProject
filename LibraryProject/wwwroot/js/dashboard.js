@@ -3,7 +3,7 @@
 // Espera-se que a constante API_URL (base da API) já esteja definida em outro script, assim como o axios já foi importado
 
 function getAuthHeaders() {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     return { Authorization: `Bearer ${token}` };
 }
 
