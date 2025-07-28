@@ -35,7 +35,7 @@
 
 // Função utilitária para requisições com token exceto GET
 async function apiRequestComToken(url, method = 'GET', body = null) {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const headers = { 'Content-Type': 'application/json' };
     if (method !== 'GET' && token) {
         headers['Authorization'] = 'Bearer ' + token;
