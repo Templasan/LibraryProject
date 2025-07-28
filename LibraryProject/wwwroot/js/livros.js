@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Função utilitária para requisições autenticadas exceto GET
 async function livroRequestComToken(url, method = 'GET', body = null) {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     // Só adiciona Content-Type se houver body (evita problemas no DELETE)
     const headers = {};
     if (method !== 'GET' && token) {
